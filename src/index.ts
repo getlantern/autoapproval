@@ -81,7 +81,8 @@ module.exports = (app: Probot) => {
 }
 
 async function approvePullRequest (context: Context) {
-  const prParams = context.pullRequest({ event: 'APPROVE' as const, body: 'Approved :+1:' })
+  // const prParams = context.pullRequest({ event: 'APPROVE' as const, body: 'Approved :+1:' })
+  const prParams = context.pullRequest({ event: 'APPROVE' as const })
   await context.octokit.pulls.createReview(prParams)
 }
 
